@@ -1,0 +1,29 @@
+name: Deploy to Fly.io
+
+on:
+  push:
+    branches:
+      - main  # Runs when code is pushed to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install Fly CLI
+      run: curl -L https://fly.io/install.sh | sh
+
+    - name: Authenticate with Fly.io
+      run: |
+        export FLYCTL_INSTALL="/home/runner/.fly"
+        export PATH="$FLYCTL_INSTALL/bin:$PATH"
+        echo "${{ secrets.FLY_API_TOKEN }}" | flyctl auth token --access-token
+
+    - name: Deploy to Fly.io using fly.toml
+      run: |
+        export FLYCTL_INSTALL="/home/runner/.fly"
+        export PATH="$FLYCTL_INSTALL/bin:$PATH"
+        flyctl deploy --config fly.toml
