@@ -16,6 +16,9 @@ Gear Inches are then calculated by multiplying the gear ratio (Chainring Teeth /
 
 ```
 gear-inches-calculator/
+├── .github
+│    └── workflows
+│        └── deploy.yml
 ├── README.md
 ├── index.html
 ├── assets/
