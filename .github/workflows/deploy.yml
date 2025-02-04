@@ -20,7 +20,7 @@ jobs:
       run: |
         export FLYCTL_INSTALL="/home/runner/.fly"
         export PATH="$FLYCTL_INSTALL/bin:$PATH"
-        echo "${{ secrets.FLY_API_TOKEN }}" | flyctl auth token --access-token
+        flyctl auth login --access-token "${{ secrets.FLY_API_TOKEN }}"
 
     - name: Deploy to Fly.io using fly.toml
       run: |
