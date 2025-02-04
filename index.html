@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gear Inches Calculator</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Gear Inches Calculator</h1>
+    <div class="calculator">
+      <h2>Drivetrain Specification</h2>
+      <label for="chainringCount">Number of Chainrings:</label>
+      <input type="number" id="chainringCount" min="1" value="1" onchange="updateInputs()"><br>
+      
+      <label for="cassetteCount">Number of Sprockets on Cassette:</label>
+      <input type="number" id="cassetteCount" min="1" value="1" onchange="updateInputs()"><br>
+      
+      <div id="gearInputs"></div>
+      
+      <h2>Wheel Parameters</h2>
+      <label for="rim">Rim Diameter (inches):</label>
+      <input type="number" id="rim" step="0.1" value="29"><br>
+      
+      <label for="tire">Tire Width (inches):</label>
+      <input type="number" id="tire" step="0.1" value="2.0"><br>
+      
+      <button onclick="generateGearTable()">Generate Gear Table</button>
+      <div id="result"></div>
+    </div>
+  </div>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
